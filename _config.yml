@@ -102,4 +102,9 @@ theme: icarus
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: '' 
+  - type: qexo
+    url: # 以后填入你的Qexo后台地址
+    api: # 以后填入你的Qexo API密钥
+  - type: git
+    repo: https://github.com/HarlIvyisrio/OwlEmpire.git
+    branch: main 

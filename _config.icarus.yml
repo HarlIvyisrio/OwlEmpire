@@ -46,6 +46,7 @@ cdn: jsdelivr
 #   - css/custom.css
 #   - js/custom.js
 assets:
+    - _data/style.styl
 
 # A list of your website's navigation links
 navbar:
@@ -169,7 +170,7 @@ plugins:
 # There are more than 20 variants available in the Icarus theme.
 # E.g., "default", "cyberpunk", "dim", "galaxy", "material", "ocean"
 # Get the full variant list at https://github.com/ppoffice/hexo-theme-icarus/tree/master/include/style/color
-variant: cyberpunk # A good starting point for purple/rock style
+variant: default
 
 # The "direction" setting defines the writing direction of your blog.
 # E.g., "ltr", "rtl"
