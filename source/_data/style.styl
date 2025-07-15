@@ -1,102 +1,244 @@
-// Custom Styles for OwlEmpire
-// Injecting some neon rock vibes!
+// OwlEmpire - Purple Neon Rock Theme
+// 紫色霓虹摇滚风格主题
 
-// Import Google Fonts
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@400;700&display=swap');
+// 导入谷歌字体
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;700&display=swap')
 
-// General Body & Typography
-body
-    background: #0d0221 !important
-    color: #f0f0f0 !important
-    font-family: 'Roboto', sans-serif
+// 全局变量
+$primary-purple = #a020f0
+$dark-purple = #0d0221
+$light-purple = #f5d7ff
+$neon-purple = #bf40ff
+$card-bg = rgba(26, 10, 56, 0.8)
+$card-border = rgba(160, 32, 240, 0.6)
 
-// Neon Text Effect as a mixin
+// 霓虹文字效果混合
 neon-text()
-    font-family: 'Orbitron', sans-serif
-    color: #fff
-    text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #a020f0, 0 0 82px #a020f0, 0 0 92px #a020f0, 0 0 102px #a020f0, 0 0 151px #a020f0
+    font-family 'Orbitron', sans-serif
+    color #fff
+    text-shadow 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px $primary-purple, 0 0 82px $primary-purple, 0 0 92px $primary-purple, 0 0 102px $primary-purple, 0 0 151px $primary-purple
 
-// Header & Navbar
+// 全局背景和基础样式
+body
+    background linear-gradient(135deg, #0d0221 0%, #1a0a38 50%, #2d1b69 100%) !important
+    color #f0f0f0 !important
+    font-family 'Roboto', sans-serif !important
+    min-height 100vh
+    overflow-x hidden
+
+// 添加动态背景效果
+body::before
+    content ''
+    position fixed
+    top 0
+    left 0
+    width 100%
+    height 100%
+    background url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><radialGradient id="g" cx="50%" cy="50%" r="50%"><stop offset="0%" style="stop-color:%23a020f0;stop-opacity:0.1"/><stop offset="100%" style="stop-color:%23a020f0;stop-opacity:0"/></radialGradient></defs><circle cx="50" cy="50" r="50" fill="url(%23g)"/></svg>') repeat
+    opacity 0.3
+    z-index -1
+    animation pulse 4s ease-in-out infinite
+
+@keyframes pulse
+    0%, 100%
+        opacity 0.3
+    50%
+        opacity 0.6
+
+// 导航栏样式
 .navbar
-    background: rgba(13, 2, 33, 0.8) !important
-    backdrop-filter: blur(10px)
-    border-bottom: 1px solid rgba(160, 32, 240, 0.5)
+    background rgba(13, 2, 33, 0.9) !important
+    backdrop-filter blur(15px)
+    border-bottom 2px solid $primary-purple
+    box-shadow 0 4px 20px rgba(160, 32, 240, 0.3)
+    position sticky
+    top 0
+    z-index 1000
 
-.logo-link .title
+.navbar-brand .logo
     neon-text()
-    font-size: 2em
+    font-size 2.5em !important
+    font-weight 900
+    animation glow 2s ease-in-out infinite alternate
+
+@keyframes glow
+    from
+        text-shadow 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px $primary-purple, 0 0 82px $primary-purple, 0 0 92px $primary-purple, 0 0 102px $primary-purple, 0 0 151px $primary-purple
+    to
+        text-shadow 0 0 10px #fff, 0 0 15px #fff, 0 0 30px #fff, 0 0 60px $primary-purple, 0 0 100px $primary-purple, 0 0 120px $primary-purple, 0 0 140px $primary-purple, 0 0 180px $primary-purple
 
 .navbar-menu a
-    color: #f0f0f0 !important
-    font-size: 1.1em
-    transition: all 0.3s ease
+    color #f0f0f0 !important
+    font-size 1.2em
+    font-weight 500
+    transition all 0.3s ease
+    position relative
+    padding 0.5rem 1rem
+    border-radius 5px
 
 .navbar-menu a:hover
-    color: #fff !important
-    text-shadow: 0 0 10px #a020f0
+    color #fff !important
+    background rgba(160, 32, 240, 0.2)
+    text-shadow 0 0 10px $primary-purple
+    transform translateY(-2px)
 
-// Main Content & Cards
+// 主内容区域
+.section
+    padding 3rem 0
+
+.container
+    max-width 1200px
+
+// 卡片样式
 .card
-    background: rgba(26, 10, 56, 0.7) !important
-    border: 1px solid rgba(160, 32, 240, 0.6) !important
-    box-shadow: 0 0 20px rgba(160, 32, 240, 0.3)
-    transition: all 0.3s ease
+    background $card-bg !important
+    border 2px solid $card-border !important
+    border-radius 15px
+    box-shadow 0 8px 32px rgba(160, 32, 240, 0.4)
+    transition all 0.3s ease
+    position relative
+    overflow hidden
+
+.card::before
+    content ''
+    position absolute
+    top 0
+    left -100%
+    width 100%
+    height 100%
+    background linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent)
+    transition left 0.5s ease
+    z-index 1
+
+.card:hover::before
+    left 100%
 
 .card:hover
-    transform: translateY(-5px)
-    box-shadow: 0 0 30px rgba(160, 32, 240, 0.6)
+    transform translateY(-8px) scale(1.02)
+    box-shadow 0 12px 40px rgba(160, 32, 240, 0.6)
+    border-color $neon-purple
 
-.card .card-header h1.title
-    color: #f5d7ff
+// 标题样式
+.title
+    color $light-purple !important
+    font-family 'Orbitron', sans-serif
+    font-weight 700
+    text-shadow 0 0 10px rgba(245, 215, 255, 0.5)
+
+h1.title
+    font-size 3rem
     neon-text()
-    font-size: 1.8em
+    text-align center
+    margin-bottom 2rem
 
-.article-entry
-    color: #ccc
-    line-height: 1.8
+h2.title
+    font-size 2rem
+    color $neon-purple !important
 
-.article-entry a
-    color: #d8b4fe !important
-    text-decoration: none
-    border-bottom: 1px dashed #d8b4fe
+h3.title
+    font-size 1.5rem
+    color $light-purple !important
 
-// Widgets
+// 按钮样式
+.button
+    background linear-gradient(45deg, $primary-purple, $neon-purple) !important
+    color #fff !important
+    border none !important
+    border-radius 25px
+    padding 12px 30px
+    font-weight 600
+    text-transform uppercase
+    letter-spacing 1px
+    transition all 0.3s ease
+    box-shadow 0 4px 15px rgba(160, 32, 240, 0.4)
+
+.button:hover
+    transform translateY(-3px)
+    box-shadow 0 8px 25px rgba(160, 32, 240, 0.6)
+    background linear-gradient(45deg, $neon-purple, $primary-purple) !important
+
+// 文章内容样式
+.content
+    color #e0e0e0 !important
+    line-height 1.8
+    font-size 1.1rem
+
+.content p
+    margin-bottom 1.5rem
+
+.content a
+    color $neon-purple !important
+    text-decoration none
+    border-bottom 1px solid transparent
+    transition all 0.3s ease
+
+.content a:hover
+    color #fff !important
+    border-bottom-color $primary-purple
+    text-shadow 0 0 5px $primary-purple
+
+// 侧边栏样式
 .widget
-    @extend .card // Reuse card style
+    background $card-bg !important
+    border 1px solid $card-border !important
+    border-radius 10px
+    padding 1.5rem
+    margin-bottom 2rem
+    box-shadow 0 4px 20px rgba(160, 32, 240, 0.2)
 
-.widget .widget-title
-    color: #e9d5ff
-    border-bottom: 1px solid rgba(160, 32, 240, 0.5)
-    padding-bottom: 10px
-    margin-bottom: 10px
+.widget-title
+    color $light-purple !important
+    font-family 'Orbitron', sans-serif
+    font-size 1.3rem
+    margin-bottom 1rem
+    text-align center
 
-// Footer
+// 页脚样式
 .footer
-    background: transparent !important
-    color: #aaa !important
+    background rgba(13, 2, 33, 0.95) !important
+    border-top 2px solid $primary-purple
+    padding 2rem 0
+    margin-top 3rem
 
-// Custom Button with Neon effect
-.neon-button
-    display: inline-block
-    padding: 10px 20px
-    color: #e9d5ff
-    border: 2px solid #e9d5ff
-    border-radius: 5px
-    text-decoration: none
-    font-weight: bold
-    transition: all 0.3s ease
-    text-shadow: 0 0 5px #e9d5ff
+.footer .content
+    text-align center
+    color #b0b0b0 !important
 
-.neon-button:hover
-    color: #fff
-    background: #e9d5ff
-    box-shadow: 0 0 20px #e9d5ff
-    text-shadow: none 
+// 响应式设计
+@media (max-width: 768px)
+    .navbar-brand .logo
+        font-size 2rem !important
+    
+    h1.title
+        font-size 2rem
+    
+    .card
+        margin 1rem 0
 
-// Add animation for neon flicker
-@keyframes neon-flicker
-    0%, 100% { text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #a020f0, 0 0 82px #a020f0 }
-    50% { text-shadow: 0 0 4px #fff, 0 0 7px #fff, 0 0 15px #fff, 0 0 30px #a020f0, 0 0 60px #a020f0 }
+// 自定义滚动条
+::-webkit-scrollbar
+    width 12px
 
-.neon-text
-    animation: neon-flicker 1.5s infinite alternate 
+::-webkit-scrollbar-track
+    background $dark-purple
+
+::-webkit-scrollbar-thumb
+    background linear-gradient(45deg, $primary-purple, $neon-purple)
+    border-radius 10px
+
+::-webkit-scrollbar-thumb:hover
+    background linear-gradient(45deg, $neon-purple, $primary-purple)
+
+// 加载动画
+.loading
+    display inline-block
+    width 20px
+    height 20px
+    border 3px solid rgba(160, 32, 240, 0.3)
+    border-radius 50%
+    border-top-color $primary-purple
+    animation spin 1s ease-in-out infinite
+
+@keyframes spin
+    to
+        transform rotate(360deg) 
