@@ -1,7 +1,7 @@
 # OwlEmpire - 个人艺术博客
 
 ## 概述
-这是一个基于Hexo的个人博客，使用Icarus主题，带有紫色霓虹摇滚风格。用于分享艺术创作和梦想。
+这是一个基于Hexo的个人博客，使用Icarus主题
 
 ## 使用方法
 - 生成站点：`npx hexo generate`
