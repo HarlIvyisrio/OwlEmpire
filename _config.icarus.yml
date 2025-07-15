@@ -34,6 +34,8 @@ donation:
 
 # Following services
 follow:
+    twitter: your-twitter-username  # 示例，替换为实际
+    github: your-github-username
 
 # CDN provider for third-party libraries
 # Choose from "cdnjs", "loli", "jsdelivr", "unpkg", "staticfile"
@@ -55,22 +57,12 @@ navbar:
     menu:
         主页:
             path: /
-            icon: fas fa-home
         作品集:
-            path: /portfolio
-            icon: fas fa-palette
+            path: /portfolio/
         归档:
-            path: /archives
-            icon: fas fa-archive
-        分类:
-            path: /categories
-            icon: fas fa-folder-open
-        标签:
-            path: /tags
-            icon: fas fa-tags
+            path: /archives/
         关于:
-            path: /about
-            icon: fas fa-user-astronaut
+            path: /about/
 
 # The footer of your website
 footer:
@@ -140,8 +132,8 @@ comment:
 # Share plugin configurations
 # https://github.com/ppoffice/hexo-theme-icarus/wiki/Configuration#share-plugins
 share:
-    # Name of the share plugin
-    type:
+    type: addthis
+    profile_id: your-addthis-profile-id  # 需要用户提供或移除
 
 # Other plugin configurations
 plugins:
@@ -209,12 +201,13 @@ widgets:
         type: tags
         position: left
     # The right column
-    -
-        type: follow
-        position: right
-    -
-        type: share
-        position: right
+    # Comment out or remove follow and share if not configured
+    # -
+    #     type: follow
+    #     position: right
+    # -
+    #     type: share
+    #     position: right
     -
         type: links
         position: right
