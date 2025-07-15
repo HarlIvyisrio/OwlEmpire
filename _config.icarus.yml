@@ -1,0 +1,243 @@
+# Version of the Icarus theme that is currently used
+version: 6.1.0
+
+# Profile specifies author information, social links, and links to services like donation and e-mail feedback.
+profile:
+    # Your name
+    name: Owl Master
+    # A brief bio about you
+    bio: '艺术家、创作者、梦想家。在这里分享我的创作世界。'
+    # Your avatar
+    avatar: https://i.imgur.com/M8k9fAd.png # 一个猫头鹰的头像示例
+    # Links to your social accounts
+    social_links:
+        # Get the icon name from https://fontawesome.com/icons
+        Github:
+            icon: fab fa-github
+            url: https://github.com/your-github-username
+        Twitter:
+            icon: fab fa-twitter
+            url: https://twitter.com/your-twitter-username
+        Instagram:
+            icon: fab fa-instagram
+            url: https://instagram.com/your-instagram-username
+    # E-mail feedback service
+    # E-mail feedback service and sharing services are provided by "AddThis".
+    # You can get a profile ID at https://www.addthis.com/dashboard
+    email_service:
+        # AddThis profile ID
+        # E.g., "ra-6000000000000000"
+        profile_id:
+
+# Donation services
+donation:
+
+# Following services
+follow:
+
+# CDN provider for third-party libraries
+# Choose from "cdnjs", "loli", "jsdelivr", "unpkg", "staticfile"
+# or a custom CDN URL
+cdn: jsdelivr
+
+# A list of file paths to your custom CSS and JS files
+# The file paths should be relative to the "source" directory
+# E.g.,
+#   - css/custom.css
+#   - js/custom.js
+assets:
+
+# A list of your website's navigation links
+navbar:
+    # The "path" values are relative to the root of your website
+    # The "icon" values are the names of Font Awesome icons
+    menu:
+        主页:
+            path: /
+            icon: fas fa-home
+        归档:
+            path: /archives
+            icon: fas fa-archive
+        分类:
+            path: /categories
+            icon: fas fa-folder-open
+        标签:
+            path: /tags
+            icon: fas fa-tags
+        关于:
+            path: /about
+            icon: fas fa-info-circle
+
+# The footer of your website
+footer:
+    # Links to your social accounts
+    social_links:
+        Github:
+            icon: fab fa-github
+            url: https://github.com/your-github-username
+        Twitter:
+            icon: fab fa-twitter
+            url: https://twitter.com/your-twitter-username
+        RSS:
+            icon: fas fa-rss
+            path: /atom.xml
+    # Links to your website's pages
+    # E.g.,
+    #   About: /about
+    #   Privacy: /privacy
+    page_links:
+
+# Post-related configurations
+post:
+    # The thumbnail of a post
+    thumbnail: true
+    # The banner of a post
+    banner: true
+    # Read more link
+    read_more: a
+    # The position of the navigation bar for a post page
+    # The "navbar_post" is the class name of the navigation bar
+    # "left", "right", "top", "bottom"
+    navbar_post_class:
+        # For PC
+        desktop: top
+        # For mobile
+        mobile: bottom
+    # Default license for all posts
+    # You can find the license list at https://creativecommons.org/licenses/
+    # Or you can use a custom license name
+    license:
+        # Icon for the license
+        icon: fab fa-creative-commons
+        # Your license name
+        name: BY-NC-SA 4.0
+        # The URL of your license
+        url: https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+# Search plugin configurations
+# https://github.com/ppoffice/hexo-theme-icarus/wiki/Configuration#search-plugins
+search:
+    # Name of the search plugin
+    type: insight
+    # Path to the search index file
+    path: search.json
+    # The search index should be only generated once
+    # and should not be changed unless the posts are changed
+    field: post
+    # The content of the search index
+    content: true
+
+# Comment plugin configurations
+# https://github.com/ppoffice/hexo-theme-icarus/wiki/Configuration#comment-plugins
+comment:
+    # Name of the comment plugin
+    type:
+
+# Share plugin configurations
+# https://github.com/ppoffice/hexo-theme-icarus/wiki/Configuration#share-plugins
+share:
+    # Name of the share plugin
+    type:
+
+# Other plugin configurations
+plugins:
+    # Code block highlight settings
+    # https://github.com/ppoffice/hexo-theme-icarus/wiki/Configuration#code-highlight
+    highlight:
+        # Code block highlight theme
+        # https://github.com/highlightjs/highlight.js/tree/master/srcs/styles
+        type: atom-one-dark
+    # Image gallery plugin
+    # https://github.com/ppoffice/hexo-theme-icarus/wiki/Configuration#image-gallery
+    gallery:
+        # The name of the gallery plugin
+        # "lightgallery" or "fancybox"
+        type: lightgallery
+    # KaTeX math formula plugin
+    # https://github.com/ppoffice/hexo-theme-icarus/wiki/Configuration#math-formulae
+    katex:
+        # The CDN of the KaTeX library
+        cdn:
+    # Cookie consent plugin
+    # https://github.com/ppoffice/hexo-theme-icarus/wiki/Configuration#cookie-consent
+    cookie_consent:
+        # The CDN of the cookie consent library
+        cdn:
+
+# The "variant" setting defines the color scheme of your blog.
+# You can customize the color scheme in the "include/style/color" directory.
+# There are more than 20 variants available in the Icarus theme.
+# E.g., "default", "cyberpunk", "dim", "galaxy", "material", "ocean"
+# Get the full variant list at https://github.com/ppoffice/hexo-theme-icarus/tree/master/include/style/color
+variant: cyberpunk # A good starting point for purple/rock style
+
+# The "direction" setting defines the writing direction of your blog.
+# E.g., "ltr", "rtl"
+direction: ltr
+
+# The "style" setting is used to customize the CSS style of your blog.
+# You can add your custom CSS styles to the "include/style/custom.styl" file.
+style: custom
+
+# The layout of the widgets
+# There are three columns in the layout: "left", "right", "left_bottom", "right_bottom"
+widgets:
+    # The left column
+    -
+        # The type of the widget
+        type: profile
+        # The position of the widget
+        # "left" or "right"
+        position: left
+    -
+        type: toc
+        position: left
+    -
+        type: recent_posts
+        position: left
+    -
+        type: categories
+        position: left
+    -
+        type: archives
+        position: left
+    -
+        type: tags
+        position: left
+    # The right column
+    -
+        type: follow
+        position: right
+    -
+        type: share
+        position: right
+    -
+        type: links
+        position: right
+        # A list of links to show in the widget
+        # E.g.,
+        #   My Blog: https://my.blog
+        #   Hexo: https://hexo.io
+        links:
+            Hexo: https://hexo.io
+            Icarus: https://github.com/ppoffice/hexo-theme-icarus
+    # The bottom left column in a post page
+    -
+        type: donation
+        position: left_bottom
+    -
+        type: follow_post
+        position: left_bottom
+    -
+        type: share_post
+        position: left_bottom
+    # The bottom right column in a post page
+    -
+        type: license
+        position: right_bottom
+    -
+        type: comment
+        position: right_bottom
+    -
+        type: prev_next
+        position: right_bottom 
