@@ -1,32 +1,41 @@
-// OwlEmpire - Purple Neon Rock Theme
-// 紫色霓虹摇滚风格主题
+// OwlEmpire - Steam Gaming Style Theme
+// Steam风格游戏主题
 
-// 导入谷歌字体
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;700&display=swap')
+// 导入游戏风格字体
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap')
 
-// 全局变量
-$primary-purple = #a020f0
-$dark-purple = #0d0221
-$light-purple = #f5d7ff
-$neon-purple = #bf40ff
-$card-bg = rgba(26, 10, 56, 0.8)
-$card-border = rgba(160, 32, 240, 0.6)
+// 颜色变量 - Steam风格
+$steam-dark = #1b2838
+$steam-darker = #171a21
+$steam-blue = #66c0f4
+$steam-light-blue = #8bb5d1
+$steam-green = #90ba3c
+$steam-orange = #ff6b35
+$steam-purple = #b048f5
+$steam-gray = #2a475e
+$steam-light-gray = #c7d5e0
+$steam-card = #16202d
+$steam-border = #3c4043
 
-// 霓虹文字效果混合
-neon-text()
-    font-family 'Orbitron', sans-serif
-    color #fff
-    text-shadow 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px $primary-purple, 0 0 82px $primary-purple, 0 0 92px $primary-purple, 0 0 102px $primary-purple, 0 0 151px $primary-purple
+// 全局重置和基础样式
+*
+    box-sizing border-box
+    margin 0
+    padding 0
 
-// 全局背景和基础样式
+html
+    scroll-behavior smooth
+
 body
-    background linear-gradient(135deg, #0d0221 0%, #1a0a38 50%, #2d1b69 100%) !important
-    color #f0f0f0 !important
-    font-family 'Roboto', sans-serif !important
+    background $steam-darker !important
+    color $steam-light-gray !important
+    font-family 'Rajdhani', sans-serif !important
+    font-size 16px
+    line-height 1.6
     min-height 100vh
     overflow-x hidden
 
-// 添加动态背景效果
+// 动态背景效果
 body::before
     content ''
     position fixed
@@ -34,211 +43,383 @@ body::before
     left 0
     width 100%
     height 100%
-    background url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><radialGradient id="g" cx="50%" cy="50%" r="50%"><stop offset="0%" style="stop-color:%23a020f0;stop-opacity:0.1"/><stop offset="100%" style="stop-color:%23a020f0;stop-opacity:0"/></radialGradient></defs><circle cx="50" cy="50" r="50" fill="url(%23g)"/></svg>') repeat
-    opacity 0.3
+    background linear-gradient(135deg, $steam-darker 0%, $steam-dark 50%, #0f1419 100%)
+    z-index -2
+
+body::after
+    content ''
+    position fixed
+    top 0
+    left 0
+    width 100%
+    height 100%
+    background url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><radialGradient id="steam-glow" cx="50%" cy="50%" r="50%"><stop offset="0%" style="stop-color:%2366c0f4;stop-opacity:0.1"/><stop offset="100%" style="stop-color:%2366c0f4;stop-opacity:0"/></radialGradient></defs><circle cx="50" cy="50" r="50" fill="url(%23steam-glow)"/></svg>') repeat
+    opacity 0.4
     z-index -1
-    animation pulse 4s ease-in-out infinite
+    animation steam-pulse 6s ease-in-out infinite
 
-@keyframes pulse
+@keyframes steam-pulse
     0%, 100%
-        opacity 0.3
+        opacity 0.4
     50%
-        opacity 0.6
+        opacity 0.7
 
-// 导航栏样式
+// 导航栏 - Steam风格
 .navbar
-    background rgba(13, 2, 33, 0.9) !important
-    backdrop-filter blur(15px)
-    border-bottom 2px solid $primary-purple
-    box-shadow 0 4px 20px rgba(160, 32, 240, 0.3)
+    background rgba(27, 40, 56, 0.95) !important
+    backdrop-filter blur(10px)
+    border-bottom 2px solid $steam-blue
+    box-shadow 0 2px 20px rgba(102, 192, 244, 0.3)
     position sticky
     top 0
     z-index 1000
 
-.navbar-brand .logo
-    neon-text()
-    font-size 2.5em !important
-    font-weight 900
-    animation glow 2s ease-in-out infinite alternate
+.navbar-brand
+    .logo
+        font-family 'Orbitron', sans-serif !important
+        font-size 2.2rem !important
+        font-weight 700 !important
+        color $steam-blue !important
+        text-shadow 0 0 10px rgba(102, 192, 244, 0.5)
+        transition all 0.3s ease
 
-@keyframes glow
-    from
-        text-shadow 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px $primary-purple, 0 0 82px $primary-purple, 0 0 92px $primary-purple, 0 0 102px $primary-purple, 0 0 151px $primary-purple
-    to
-        text-shadow 0 0 10px #fff, 0 0 15px #fff, 0 0 30px #fff, 0 0 60px $primary-purple, 0 0 100px $primary-purple, 0 0 120px $primary-purple, 0 0 140px $primary-purple, 0 0 180px $primary-purple
-
-.navbar-menu a
-    color #f0f0f0 !important
-    font-size 1.2em
-    font-weight 500
-    transition all 0.3s ease
-    position relative
-    padding 0.5rem 1rem
-    border-radius 5px
-
-.navbar-menu a:hover
+.navbar-brand:hover .logo
     color #fff !important
-    background rgba(160, 32, 240, 0.2)
-    text-shadow 0 0 10px $primary-purple
-    transform translateY(-2px)
+    text-shadow 0 0 15px $steam-blue, 0 0 30px $steam-blue
 
-// 主内容区域
-.section
-    padding 3rem 0
+.navbar-menu
+    .navbar-item
+        color $steam-light-gray !important
+        font-size 1.1rem !important
+        font-weight 500 !important
+        padding 0.5rem 1rem !important
+        margin 0 0.2rem !important
+        border-radius 6px !important
+        transition all 0.3s ease !important
+        position relative
+        
+        &:hover
+            background rgba(102, 192, 244, 0.1) !important
+            color $steam-blue !important
+            transform translateY(-2px)
+            
+        &::after
+            content ''
+            position absolute
+            bottom 0
+            left 50%
+            width 0
+            height 2px
+            background $steam-blue
+            transition all 0.3s ease
+            transform translateX(-50%)
+            
+        &:hover::after
+            width 80%
 
+// 主容器样式
 .container
     max-width 1200px
+    margin 0 auto
+    padding 0 1rem
 
-// 卡片样式
+.section
+    padding 2rem 0
+
+// 卡片系统 - Steam风格
 .card
-    background $card-bg !important
-    border 2px solid $card-border !important
-    border-radius 15px
-    box-shadow 0 8px 32px rgba(160, 32, 240, 0.4)
-    transition all 0.3s ease
+    background $steam-card !important
+    border 1px solid $steam-border !important
+    border-radius 12px !important
+    box-shadow 0 4px 20px rgba(0, 0, 0, 0.3) !important
+    transition all 0.3s ease !important
     position relative
     overflow hidden
+    
+    &::before
+        content ''
+        position absolute
+        top 0
+        left -100%
+        width 100%
+        height 100%
+        background linear-gradient(90deg, transparent, rgba(102, 192, 244, 0.1), transparent)
+        transition left 0.6s ease
+        z-index 1
+        
+    &:hover
+        transform translateY(-8px)
+        box-shadow 0 8px 40px rgba(102, 192, 244, 0.2)
+        border-color $steam-blue
+        
+        &::before
+            left 100%
 
-.card::before
-    content ''
-    position absolute
-    top 0
-    left -100%
-    width 100%
-    height 100%
-    background linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent)
-    transition left 0.5s ease
-    z-index 1
+.card-content
+    padding 1.5rem !important
+    position relative
+    z-index 2
 
-.card:hover::before
-    left 100%
+.card-header
+    background rgba(102, 192, 244, 0.1) !important
+    border-bottom 1px solid $steam-border !important
 
-.card:hover
-    transform translateY(-8px) scale(1.02)
-    box-shadow 0 12px 40px rgba(160, 32, 240, 0.6)
-    border-color $neon-purple
-
-// 标题样式
+// 标题系统
 .title
-    color $light-purple !important
-    font-family 'Orbitron', sans-serif
-    font-weight 700
-    text-shadow 0 0 10px rgba(245, 215, 255, 0.5)
+    font-family 'Orbitron', sans-serif !important
+    font-weight 700 !important
+    color $steam-light-gray !important
+    text-shadow 0 0 10px rgba(199, 213, 224, 0.3)
+    margin-bottom 1rem !important
 
-h1.title
-    font-size 3rem
-    neon-text()
-    text-align center
-    margin-bottom 2rem
+.title.is-1
+    font-size 3.5rem !important
+    color $steam-blue !important
+    text-shadow 0 0 20px rgba(102, 192, 244, 0.5)
+    
+.title.is-2
+    font-size 2.5rem !important
+    color $steam-light-blue !important
+    
+.title.is-3
+    font-size 2rem !important
+    
+.title.is-4
+    font-size 1.5rem !important
+    
+.title.is-5
+    font-size 1.25rem !important
 
-h2.title
-    font-size 2rem
-    color $neon-purple !important
-
-h3.title
-    font-size 1.5rem
-    color $light-purple !important
-
-// 按钮样式
+// 按钮系统 - Steam风格
 .button
-    background linear-gradient(45deg, $primary-purple, $neon-purple) !important
+    font-family 'Rajdhani', sans-serif !important
+    font-weight 600 !important
+    border-radius 8px !important
+    padding 12px 24px !important
+    text-transform uppercase !important
+    letter-spacing 1px !important
+    transition all 0.3s ease !important
+    position relative
+    overflow hidden
+    
+    &::before
+        content ''
+        position absolute
+        top 0
+        left -100%
+        width 100%
+        height 100%
+        background linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent)
+        transition left 0.5s ease
+        z-index 1
+        
+    &:hover::before
+        left 100%
+
+.button.is-primary
+    background linear-gradient(135deg, $steam-blue, $steam-light-blue) !important
     color #fff !important
     border none !important
-    border-radius 25px
-    padding 12px 30px
-    font-weight 600
-    text-transform uppercase
-    letter-spacing 1px
-    transition all 0.3s ease
-    box-shadow 0 4px 15px rgba(160, 32, 240, 0.4)
+    box-shadow 0 4px 15px rgba(102, 192, 244, 0.3)
+    
+    &:hover
+        transform translateY(-3px)
+        box-shadow 0 6px 25px rgba(102, 192, 244, 0.4)
 
-.button:hover
-    transform translateY(-3px)
-    box-shadow 0 8px 25px rgba(160, 32, 240, 0.6)
-    background linear-gradient(45deg, $neon-purple, $primary-purple) !important
+.button.is-outlined
+    background transparent !important
+    border 2px solid $steam-blue !important
+    color $steam-blue !important
+    
+    &:hover
+        background $steam-blue !important
+        color #fff !important
+        transform translateY(-3px)
 
-// 文章内容样式
+// 内容样式
 .content
-    color #e0e0e0 !important
-    line-height 1.8
-    font-size 1.1rem
+    color $steam-light-gray !important
+    font-size 1.1rem !important
+    line-height 1.8 !important
+    
+    p
+        margin-bottom 1.5rem !important
+        
+    a
+        color $steam-blue !important
+        text-decoration none !important
+        border-bottom 1px solid transparent !important
+        transition all 0.3s ease !important
+        
+        &:hover
+            color $steam-light-blue !important
+            border-bottom-color $steam-blue !important
+            text-shadow 0 0 5px rgba(102, 192, 244, 0.5)
 
-.content p
-    margin-bottom 1.5rem
+    strong
+        color $steam-blue !important
+        font-weight 600 !important
 
-.content a
-    color $neon-purple !important
-    text-decoration none
-    border-bottom 1px solid transparent
-    transition all 0.3s ease
+    code
+        background rgba(102, 192, 244, 0.1) !important
+        color $steam-blue !important
+        padding 2px 6px !important
+        border-radius 4px !important
+        font-family 'JetBrains Mono', monospace !important
 
-.content a:hover
-    color #fff !important
-    border-bottom-color $primary-purple
-    text-shadow 0 0 5px $primary-purple
+// 标签系统
+.tag
+    font-family 'Rajdhani', sans-serif !important
+    font-weight 500 !important
+    border-radius 6px !important
+    padding 6px 12px !important
+    font-size 0.9rem !important
+    text-transform uppercase !important
+    letter-spacing 0.5px !important
+    transition all 0.3s ease !important
+    
+    &:hover
+        transform translateY(-2px)
+        box-shadow 0 4px 12px rgba(0, 0, 0, 0.3)
 
-// 侧边栏样式
+// 列布局
+.columns
+    display flex
+    flex-wrap wrap
+    margin -0.75rem
+    
+    .column
+        padding 0.75rem
+        
+        &.is-half
+            flex 0 0 50%
+            
+        &.is-one-third
+            flex 0 0 33.333%
+            
+        &.is-two-thirds
+            flex 0 0 66.666%
+
+// 侧边栏
 .widget
-    background $card-bg !important
-    border 1px solid $card-border !important
-    border-radius 10px
-    padding 1.5rem
-    margin-bottom 2rem
-    box-shadow 0 4px 20px rgba(160, 32, 240, 0.2)
+    background $steam-card !important
+    border 1px solid $steam-border !important
+    border-radius 12px !important
+    margin-bottom 2rem !important
+    padding 1.5rem !important
+    box-shadow 0 4px 15px rgba(0, 0, 0, 0.2) !important
+    
+    .widget-title
+        font-family 'Orbitron', sans-serif !important
+        color $steam-blue !important
+        font-size 1.3rem !important
+        margin-bottom 1rem !important
+        text-align center !important
+        border-bottom 1px solid $steam-border !important
+        padding-bottom 0.5rem !important
 
-.widget-title
-    color $light-purple !important
-    font-family 'Orbitron', sans-serif
-    font-size 1.3rem
-    margin-bottom 1rem
-    text-align center
-
-// 页脚样式
+// 页脚
 .footer
-    background rgba(13, 2, 33, 0.95) !important
-    border-top 2px solid $primary-purple
-    padding 2rem 0
-    margin-top 3rem
+    background $steam-darker !important
+    border-top 2px solid $steam-blue !important
+    padding 3rem 0 !important
+    margin-top 4rem !important
+    
+    .content
+        text-align center !important
+        color $steam-gray !important
 
-.footer .content
-    text-align center
-    color #b0b0b0 !important
+// 文章样式
+.article
+    background $steam-card !important
+    border 1px solid $steam-border !important
+    border-radius 12px !important
+    padding 2rem !important
+    margin-bottom 2rem !important
+    
+    .article-meta
+        color $steam-gray !important
+        font-size 0.9rem !important
+        margin-bottom 1rem !important
+        
+        .article-date
+            color $steam-blue !important
 
 // 响应式设计
 @media (max-width: 768px)
     .navbar-brand .logo
-        font-size 2rem !important
-    
-    h1.title
-        font-size 2rem
-    
+        font-size 1.8rem !important
+        
+    .title.is-1
+        font-size 2.5rem !important
+        
+    .columns
+        flex-direction column
+        
+        .column
+            flex 0 0 100%
+            
     .card
-        margin 1rem 0
+        margin-bottom 1rem !important
 
-// 自定义滚动条
+// 滚动条样式
 ::-webkit-scrollbar
     width 12px
-
+    
 ::-webkit-scrollbar-track
-    background $dark-purple
-
+    background $steam-darker
+    
 ::-webkit-scrollbar-thumb
-    background linear-gradient(45deg, $primary-purple, $neon-purple)
+    background linear-gradient(135deg, $steam-blue, $steam-light-blue)
     border-radius 10px
+    
+    &:hover
+        background linear-gradient(135deg, $steam-light-blue, $steam-blue)
 
-::-webkit-scrollbar-thumb:hover
-    background linear-gradient(45deg, $neon-purple, $primary-purple)
+// 选择文本样式
+::selection
+    background rgba(102, 192, 244, 0.3)
+    color #fff
+
+// 特殊效果
+.steam-glow
+    animation steam-glow 2s ease-in-out infinite alternate
+    
+@keyframes steam-glow
+    from
+        text-shadow 0 0 5px $steam-blue, 0 0 10px $steam-blue, 0 0 15px $steam-blue
+    to
+        text-shadow 0 0 10px $steam-blue, 0 0 20px $steam-blue, 0 0 30px $steam-blue
 
 // 加载动画
 .loading
     display inline-block
     width 20px
     height 20px
-    border 3px solid rgba(160, 32, 240, 0.3)
+    border 3px solid rgba(102, 192, 244, 0.3)
     border-radius 50%
-    border-top-color $primary-purple
-    animation spin 1s ease-in-out infinite
-
+    border-top-color $steam-blue
+    animation spin 1s linear infinite
+    
 @keyframes spin
     to
-        transform rotate(360deg) 
+        transform rotate(360deg)
+
+// 隐藏不需要的元素
+.is-hidden
+    display none !important
+
+// 修复Bulma框架的一些样式冲突
+.navbar-item.has-dropdown:hover .navbar-dropdown
+    display block !important
+
+// 确保所有文本都使用正确的颜色
+h1, h2, h3, h4, h5, h6
+    color $steam-light-gray !important
+
+// 链接样式
+a
+    color $steam-blue !important
+    
+    &:hover
+        color $steam-light-blue !important 
