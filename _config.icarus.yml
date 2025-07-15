@@ -56,6 +56,9 @@ navbar:
         主页:
             path: /
             icon: fas fa-home
+        作品集:
+            path: /portfolio
+            icon: fas fa-palette
         归档:
             path: /archives
             icon: fas fa-archive
@@ -67,7 +70,7 @@ navbar:
             icon: fas fa-tags
         关于:
             path: /about
-            icon: fas fa-info-circle
+            icon: fas fa-user-astronaut
 
 # The footer of your website
 footer:
